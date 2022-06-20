@@ -38,7 +38,7 @@ while True:
     # topic2 = "humedad/"
     value1 = float(round(uniform(10, 30), 1))
     value2 = float(round(uniform(50, 99), 1))
-    value3 = float(round(uniform(30,67),1))
+    value3 = float(round(uniform(1,100),1))
     value1 = json.dumps({"value": value1})
     value2 = json.dumps({"value":value2})
     value3 = json.dumps({"value":value3})
