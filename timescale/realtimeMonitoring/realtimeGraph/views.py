@@ -698,7 +698,7 @@ def get_measure_information(request, **kwargs):
         end = None
     if start == None and end == None:
         start = datetime.now()
-        start = start - dateutil.relativedelta.relativedelta(weeks=1)
+        start = start - dateutil.relativedelta.relativedelta(weeks=180)
         end = datetime.now()
         end += dateutil.relativedelta.relativedelta(days=1)
     elif end == None:
