@@ -677,6 +677,60 @@ class RemaView(TemplateView):
 
         return context
 
+def get_measure_information(request, **kwargs):
+    data_result = {}
+
+    measurements = Measurement.objects.all()
+    locations = Location.objects.all()
+
+    selectedLocation = locations[0]
+
+    try:
+        start = datetime.fromtimestamp(
+            float(request.GET.get("from", None)) / 1000
+        )
+    except:
+        start = None
+    try:
+        end = datetime.fromtimestamp(
+            float(request.GET.get("to", None)) / 1000)
+    except:
+        end = None
+    if start == None and end == None:
+        start = datetime.now()
+        start = start - dateutil.relativedelta.relativedelta(weeks=180)
+        end = datetime.now()
+        end += dateutil.relativedelta.relativedelta(days=1)
+    elif end == None:
+        end = datetime.now()
+    elif start == None:
+        start = datetime.fromtimestamp(0)
+
+    data = []
+
+    for measurement in measurements:
+        stations = Station.objects.filter(location=selectedLocation)
+        locationData = Data.objects.filter(
+            station__in=stations, time__gte=start.date(), time__lte=end.date()).order_by("-base_time")[:50]
+        if locationData.count() <= 0:
+            continue
+        data.append({
+            'name': measurement.name,
+            'unit': measurement.unit,
+            'max_value': measurement.max_value,
+            'min_value': measurement.min_value,
+            'active': measurement.active,
+        })
+
+    startFormatted = start.strftime("%d/%m/%Y") if start != None else " "
+    endFormatted = end.strftime("%d/%m/%Y") if end != None else " "
+
+    data_result["measurements"] = [measu.str() for measu in measurements]
+    data_result["start"] = startFormatted
+    data_result["end"] = endFormatted
+    data_result["data"] = data
+
+    return JsonResponse(data_result)
 
 def download_csv_data(request):
     print("Getting time for csv req")
