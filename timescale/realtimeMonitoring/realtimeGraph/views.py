@@ -698,7 +698,7 @@ def get_measure_information(request, **kwargs):
         end = None
     if start == None and end == None:
         start = datetime.now()
-        start = start - dateutil.relativedelta.relativedelta(weeks=180)
+        start = start - dateutil.relativedelta.relativedelta(weeks=1)
         end = datetime.now()
         end += dateutil.relativedelta.relativedelta(days=1)
     elif end == None:
@@ -708,10 +708,13 @@ def get_measure_information(request, **kwargs):
 
     data = []
 
+    start_ts = int(start.timestamp() * 1000000)
+    end_ts = int(end.timestamp() * 1000000)
+
     for measurement in measurements:
         stations = Station.objects.filter(location=selectedLocation)
         locationData = Data.objects.filter(
-            station__in=stations, time__gte=start.date(), time__lte=end.date()).order_by("-base_time")[:50]
+            station__in=stations, time__gte=start_ts, time__lte=end_ts).order_by("-base_time")[:50]
         if locationData.count() <= 0:
             continue
         data.append({
