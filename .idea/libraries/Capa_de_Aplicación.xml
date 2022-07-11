@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Capa de Aplicación">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/postgres/tutoriales/Capa de Aplicación/IOTDeviceScript.zip!/" />
+      <root url="jar://$PROJECT_DIR$/postgres/tutoriales/Capa de Aplicación/IOTEmulatorScript.zip!/" />
+      <root url="jar://$PROJECT_DIR$/postgres/tutoriales/Capa de Aplicación/IOTMonitoringServer.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

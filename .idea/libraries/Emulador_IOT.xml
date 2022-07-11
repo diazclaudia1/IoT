@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Emulador IOT">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/postgres/tutoriales/Capa de Dispositivo/Emulador IOT.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

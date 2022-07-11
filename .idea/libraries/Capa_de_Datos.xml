@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Capa de Datos">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/postgres/tutoriales/Capa de Datos/timescaleMonitoring.zip!/" />
+      <root url="jar://$PROJECT_DIR$/postgres/tutoriales/Capa de Datos/postgresMonitoring.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

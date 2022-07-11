@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="MQTT Test">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/postgres/tutoriales/Capa de Sesión/MQTT Test.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
