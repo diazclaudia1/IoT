@@ -1,0 +1,3 @@
+Etiqueta,# Muestras,Media,Mín,Máx,Desv. Estándar,% Error,Rendimiento,Kb/sec,Sent KB/sec,Media de Bytes
+Petición a timescale,60,1300,453,1693,"341,77","0,000%","24,51982","12,64","3,04","528,0"
+Total,60,1300,453,1693,"341,77","0,000%","24,51982","12,64","3,04","528,0"
